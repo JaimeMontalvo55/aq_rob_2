@@ -44,24 +44,41 @@ def leer_muestras_range(ruta_bag, topic):
 
 
 def comprobar_rangos(muestras, topic='', margen=0.0):
-    """TODO (obligatoria o la otra). Devuelve [] si todas las muestras cumplen
-    min_range - margen <= range <= max_range + margen.
+    """Detecta muestras cuyo rango está fuera de los límites permitidos."""
+    if not muestras:
+        return []
 
-    Si alguna no cumple, devuelve UN solo Hallazgo('ERROR', 'RANGO_FUERA', topic, detalle) cuyo detalle diga
-    cuantas muestras fallan (de cuantas) y en que intervalo de tiempo ocurren (t de la primera y de la ultima).
-    """
-    raise NotImplementedError('Ejercicio 3: implementa comprobar_rangos')
+    fuera = [
+        muestra for muestra in muestras
+        if muestra['range'] < muestra['min_range'] - margen
+        or muestra['range'] > muestra['max_range'] + margen
+    ]
 
+    if not fuera:
+        return []
+
+    t_inicio = fuera[0]['t']
+    t_fin = fuera[-1]['t']
+
+    detalle = (
+        f'{len(fuera)} de {len(muestras)} muestras fuera de rango. '
+        f'Intervalo de tiempo: {t_inicio:.3f} s - {t_fin:.3f} s'
+    )
+
+    return [Hallazgo('ERROR', 'RANGO_FUERA', topic, detalle)]
 
 def comprobar_frames(muestras, topic=''):
-    """TODO (ampliacion). Devuelve [] si todas las muestras tienen el mismo frame_id.
+    """Detecta si un topic contiene varios frame_id distintos."""
+    frames = list(dict.fromkeys(
+        muestra['frame_id'] for muestra in muestras
+    ))
 
-    Si hay mas de uno, devuelve UN Hallazgo('WARN', 'FRAME_MIXTO', topic, detalle) cuyo detalle liste los
-    frame_id distintos encontrados.
-    """
-    raise NotImplementedError('Ejercicio 3 (ampliacion): implementa comprobar_frames')
+    if len(frames) <= 1:
+        return []
 
+    detalle = f'Frames distintos encontrados: {", ".join(frames)}'
 
+    return [Hallazgo('WARN', 'FRAME_MIXTO', topic, detalle)]
 def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     if len(argv) != 2:
