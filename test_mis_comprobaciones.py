@@ -64,8 +64,28 @@ class PruebasFrames(unittest.TestCase):
 
 
 class PruebasPropias(unittest.TestCase):
-    """TU TRABAJO: anade aqui al menos dos pruebas nuevas (casos limite, otro topic, tu propio fallo...)."""
-    pass
+    """Pruebas propias adicionales del ejercicio 3."""
+
+    def test_valores_exactamente_en_los_limites(self):
+        muestras = [
+            m(0, 0.02),
+            m(1, 4.0)
+        ]
+        self.assertEqual(mc.comprobar_rangos(muestras, '/distancia'), [])
+
+    def test_varios_frames_con_muestras_vacias(self):
+        self.assertEqual(mc.comprobar_frames([], '/distancia'), [])
+        muestras = [
+            m(0, 1.0, frame='sensor_izquierdo'),
+            m(1, 1.0, frame='sensor_derecho'),
+            m(2, 1.0, frame='sensor_izquierdo')
+        ]
+        hallazgos = mc.comprobar_frames(muestras, '/distancia')
+
+        self.assertEqual(len(hallazgos), 1)
+        self.assertEqual(hallazgos[0].codigo, 'FRAME_MIXTO')
+        self.assertIn('sensor_izquierdo', hallazgos[0].detalle)
+        self.assertIn('sensor_derecho', hallazgos[0].detalle)
 
 
 if __name__ == '__main__':
