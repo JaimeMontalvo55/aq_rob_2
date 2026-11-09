@@ -144,7 +144,21 @@ def generar(nombre, destino='bags', *, post=None, **opciones):
     ruta, n = escribir_bag(nombre, destino, msgs)
     print(f'{nombre}: {n} mensajes -> {ruta}')
     return ruta
+def mi_fallo(msgs):
+    """
+    Simula un nodo que duplica los mensajes publicados en /distancia.
+    Conserva el mensaje ROS original y retrasa la copia 1 ms.
+    """
+    resultado = []
 
+    for topic, tipo, instante, mensaje in msgs:
+        resultado.append((topic, tipo, instante, mensaje))
+
+        if topic == '/distancia':
+            resultado.append((topic, tipo, instante + 0.001, mensaje))
+
+    resultado.sort(key=lambda m: m[2])
+    return resultado
 
 if __name__ == '__main__':
     generar('mi_sano', 'bags')
