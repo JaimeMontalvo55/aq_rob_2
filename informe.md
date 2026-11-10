@@ -590,7 +590,8 @@ Pull Request fusionado en `main`, con la comprobación pasada:
 
 ## Memoria conceptual
 
-Pendiente de completar junto con los ejercicios 5 y 6.
+La memoria conceptual completa se entrega también como documento independiente:
+[Memoria conceptual de Jaime Montalvo](evidencias/Memoria_conceptual_Jaime_Montalvo.pdf).
 
 ## Opcional — `ros2 bag play` y RViz2
 
