@@ -11,7 +11,9 @@
   "bags": {
     "caso_0_linea_base": {
       "salida": 0,
-      "errores": []
+      "errores": [
+        "ERROR_INVENTADO"
+      ]
     },
     "caso_1": {
       "salida": 1,
