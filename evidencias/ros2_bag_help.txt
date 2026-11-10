@@ -1,0 +1,17 @@
+usage: ros2 bag [-h] Call `ros2 bag <command> -h` for more detailed usage. ...
+
+Various rosbag related sub-commands
+
+options:
+  -h, --help            show this help message and exit
+
+Commands:
+  burst    Burst data from a bag
+  convert  Given an input bag, write out a new bag with different settings
+  info     Print information about a bag to the screen
+  list     Print information about available plugins to the screen
+  play     Play back ROS data from a bag
+  record   Record ROS data to a bag
+  reindex  Reconstruct metadata file for a bag
+
+  Call `ros2 bag <command> -h` for more detailed usage.

@@ -1,0 +1,15 @@
+* f80bbfa Agent host session 229ba290-e21f-49e3-a723-79c737197476 - baseline checkpoint
+*   e393bc8 Merge pull request #1 from JaimeMontalvo55/ej3-rango
+|\  
+* | a1e36ae Añade mi_rango al contrato de regresión
+* | 0466da0 Reto Ejercicio 4
+* | 64c3a6b Añade bags propios para reproducir los experimentos
+* | a1c0fb0 Ordena exclusiones para evitar archivos generados
+| | * b83c1cf Reto Ejercicio 4
+| | * ab746ec Añade bags propios para reproducir los experimentos
+| | * 3255238 Ordena exclusiones para evitar archivos generados
+| |/  
+| * cbabdf7 Añade pruebas para rangos y frames
+| * 6cfe4ba Implementa comprobaciones de rango y frame
+|/  
+* 3cab119 Prepara estructura inicial de la práctica P2

@@ -1,0 +1,14 @@
+
+Files:             mi_sano.mcap
+Bag size:          121.0 KiB
+Storage id:        mcap
+ROS Distro:        rosbags
+Duration:          39.910476800s
+Start:             Oct 13 2026 16:00:00.002000128 (1791900000.002000128)
+End:               Oct 13 2026 16:00:39.912476928 (1791900039.912476928)
+Messages:          1200
+Topic information: Topic: /cmd_vel_demo | Type: geometry_msgs/msg/Twist | Count: 400 | Serialization Format: cdr
+                   Topic: /distancia | Type: sensor_msgs/msg/Range | Count: 400 | Serialization Format: cdr
+                   Topic: /distancia_filtrada | Type: sensor_msgs/msg/Range | Count: 400 | Serialization Format: cdr
+Service:           0
+Service information: 

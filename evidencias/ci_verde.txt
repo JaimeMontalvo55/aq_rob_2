@@ -1,0 +1,91 @@
+test_caso1_callback_bloqueante (test_analiza_bag.PruebasBags.test_caso1_callback_bloqueante) ... ok
+test_caso2_reloj (test_analiza_bag.PruebasBags.test_caso2_reloj) ... ok
+test_caso3_hueco_nace_en_sensor (test_analiza_bag.PruebasBags.test_caso3_hueco_nace_en_sensor) ... ok
+test_caso4_nombre_mal_escrito (test_analiza_bag.PruebasBags.test_caso4_nombre_mal_escrito) ... ok
+test_caso5_ritmo_bajo (test_analiza_bag.PruebasBags.test_caso5_ritmo_bajo) ... ok
+test_codigo_de_salida (test_analiza_bag.PruebasBags.test_codigo_de_salida) ... ok
+test_info (test_analiza_bag.PruebasBags.test_info) ... ok
+test_linea_base_sin_errores (test_analiza_bag.PruebasBags.test_linea_base_sin_errores) ... ok
+test_png (test_analiza_bag.PruebasBags.test_png) ... ok
+test_estadisticas_ritmo_y_huecos (test_analiza_bag.PruebasFunciones.test_estadisticas_ritmo_y_huecos) ... ok
+test_latencia_normal (test_analiza_bag.PruebasFunciones.test_latencia_normal) ... ok
+test_reloj_sellos_constantes (test_analiza_bag.PruebasFunciones.test_reloj_sellos_constantes) ... ok
+test_sin_cadena_sin_hallazgos_y_ok (test_analiza_bag.PruebasFunciones.test_sin_cadena_sin_hallazgos_y_ok) ... ok
+test_dos_frames (test_mis_comprobaciones.PruebasFrames.test_dos_frames) ... ok
+test_un_solo_frame (test_mis_comprobaciones.PruebasFrames.test_un_solo_frame) ... ok
+test_valores_exactamente_en_los_limites (test_mis_comprobaciones.PruebasPropias.test_valores_exactamente_en_los_limites) ... ok
+test_varios_frames_con_muestras_vacias (test_mis_comprobaciones.PruebasPropias.test_varios_frames_con_muestras_vacias) ... ok
+test_con_bag_real_fuera_de_rango (test_mis_comprobaciones.PruebasRangos.test_con_bag_real_fuera_de_rango) ... ok
+test_con_bag_real_sano (test_mis_comprobaciones.PruebasRangos.test_con_bag_real_sano) ... ok
+test_margen_de_tolerancia (test_mis_comprobaciones.PruebasRangos.test_margen_de_tolerancia) ... ok
+test_por_debajo_del_minimo (test_mis_comprobaciones.PruebasRangos.test_por_debajo_del_minimo) ... ok
+test_por_encima_del_maximo (test_mis_comprobaciones.PruebasRangos.test_por_encima_del_maximo) ... ok
+test_sin_muestras (test_mis_comprobaciones.PruebasRangos.test_sin_muestras) ... ok
+test_todo_en_rango (test_mis_comprobaciones.PruebasRangos.test_todo_en_rango) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 2.361s
+
+OK
+== Informe de caso_0_linea_base ==
+
+topic                    tipo                           n      Hz  max dt  lat med
+/cmd_vel_demo            Twist                        400   10.00    0.10        -
+/distancia               Range                        400   10.00    0.10    0.002
+/distancia_filtrada      Range                        400   10.00    0.10    0.007
+
+Hallazgos:
+  [INFO ] TODO_OK           -                      ritmos, huecos, latencias y reloj dentro de lo esperado
+== Informe de caso_1 ==
+
+topic                    tipo                           n      Hz  max dt  lat med
+/cmd_vel_demo            Twist                         99    2.50    0.40        -
+/distancia               Range                        400   10.00    0.10    0.002
+/distancia_filtrada      Range                         99    2.50    0.40    1.305
+
+Hallazgos:
+  [ERROR] CAIDA_EN_CADENA   /distancia_filtrada    /distancia 10.0 Hz -> /distancia_filtrada 2.5 Hz: el ritmo cae en el nodo que une ambos topics
+  [ERROR] LATENCIA_ALTA     /distancia_filtrada    latencia mediana 1.30 s (maxima 1.40 s) > 0.1 s: los datos llegan viejos (cola llena o callback lento aguas arriba)
+Files:             caso_1.mcap
+Bag size:          61.5 KiB
+Storage id:        mcap
+Duration:          39.900s
+Start:             Oct 13 2026 14:00:00.002 (1791900000.00)
+End:               Oct 13 2026 14:00:39.902 (1791900039.90)
+Messages:          598
+Topic information: Topic: /cmd_vel_demo | Type: geometry_msgs/msg/Twist | Count: 99 | Serialization Format: cdr
+                   Topic: /distancia | Type: sensor_msgs/msg/Range | Count: 400 | Serialization Format: cdr
+                   Topic: /distancia_filtrada | Type: sensor_msgs/msg/Range | Count: 99 | Serialization Format: cdr
+== Informe de caso_1 ==
+
+topic                    tipo                           n      Hz  max dt  lat med
+/cmd_vel_demo            Twist                         99    2.50    0.40        -
+/distancia               Range                        400   10.00    0.10    0.002
+/distancia_filtrada      Range                         99    2.50    0.40    1.305
+
+Hallazgos:
+  [ERROR] CAIDA_EN_CADENA   /distancia_filtrada    /distancia 10.0 Hz -> /distancia_filtrada 2.5 Hz: el ritmo cae en el nodo que une ambos topics
+  [ERROR] LATENCIA_ALTA     /distancia_filtrada    latencia mediana 1.30 s (maxima 1.40 s) > 0.1 s: los datos llegan viejos (cola llena o callback lento aguas arriba)
+
+Graficas guardadas en /tmp/tmp_mh5f02d/i.png
+malo: 150 mensajes -> /tmp/tmph33vzj7m/malo
+[ERROR] RANGO_FUERA    /distancia  11 de 50 muestras fuera de rango. Intervalo de tiempo: 1.001 s - 2.000 s
+sano: 150 mensajes -> /tmp/tmpfshnzztc/sano
+[INFO ] /distancia: sin problemas de rango ni de frame (50 muestras)
+[OK   ] caso_0_linea_base    errores = ninguno
+[OK   ] caso_1               errores = ['CAIDA_EN_CADENA', 'LATENCIA_ALTA']
+[OK   ] caso_2               errores = ['RELOJ_DESFASADO']
+[OK   ] caso_3               errores = ['HUECOS']
+[OK   ] caso_4               errores = ['SIN_DATOS']
+[OK   ] mi_rango             errores = ninguno
+
+6/6 bags con el diagnostico esperado
+== Informe de caso_0_linea_base ==
+
+topic                    tipo                           n      Hz  max dt  lat med
+/cmd_vel_demo            Twist                        400   10.00    0.10        -
+/distancia               Range                        400   10.00    0.10    0.002
+/distancia_filtrada      Range                        400   10.00    0.10    0.007
+
+Hallazgos:
+  [INFO ] TODO_OK           -                      ritmos, huecos, latencias y reloj dentro de lo esperado

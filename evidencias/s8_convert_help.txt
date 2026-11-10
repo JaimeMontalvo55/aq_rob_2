@@ -1,0 +1,15 @@
+usage: ros2 bag convert [-h] -i uri [storage_id ...] -o OUTPUT_OPTIONS
+
+Given an input bag, write out a new bag with different settings
+
+options:
+  -h, --help            show this help message and exit
+  -i uri [storage_id ...], --input uri [storage_id ...]
+                        URI (and optional storage ID) of an input bag. May be
+                        provided more than once for multiple input bags.
+                        Storage ID options are: mcap, sqlite3.
+  -o OUTPUT_OPTIONS, --output-options OUTPUT_OPTIONS
+                        YAML file with options for output bags. Must have one
+                        top-level key "output_bags", which contains a sequence
+                        of StorageOptions/RecordOptions objects. See README.md
+                        for some examples.

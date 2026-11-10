@@ -1,0 +1,14 @@
+
+Files:             turtlesim_basico_0.mcap
+Bag size:          315.2 KiB
+Storage id:        mcap
+ROS Distro:        jazzy
+Duration:          38.882488595s
+Start:             Nov 10 2026 19:47:20.082415952 (1794336440.082415952)
+End:               Nov 10 2026 19:47:58.964904547 (1794336478.964904547)
+Messages:          4944
+Topic information: Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 12 | Serialization Format: cdr
+                   Topic: /turtle1/color_sensor | Type: turtlesim/msg/Color | Count: 2466 | Serialization Format: cdr
+                   Topic: /turtle1/pose | Type: turtlesim/msg/Pose | Count: 2466 | Serialization Format: cdr
+Service:           0
+Service information: 
